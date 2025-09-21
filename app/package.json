@@ -1,0 +1,25 @@
+{
+  "name": "easy-evil-app",
+  "version": "1.0.0",
+  "author": {
+    "name": "Valentina S. Vispo"
+  },
+  "description": "Aplicación insegura para challenge DevSecOps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirosweets/Challenge-DevSecOps-1.git"
+  }
+}
