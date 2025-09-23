@@ -1,6 +1,6 @@
 # 🔐 CHALLENGE: “El Proxy Guardián — Salvando una App Maldita con Nginx”
 
-**“La seguridad no se copia. Se construye con curiosidad, ingenio y ética.”** - Valentina S. Vispo.
+**“La seguridad no se copia. Se construye con curiosidad, ingenio y ética.”**
 
 ## 🎯 Objetivo
 
@@ -24,9 +24,7 @@ Recibes una app Node.js insegura. Debes protegerla usando **Nginx como proxy inv
     > Usa Nginx como tu escudo. Cada vulnerabilidad es una oportunidad para demostrar tu ingenio.
     > Y recuerda: las mejores defensas están en los detalles que otros ignoran.”
 
-3. Prueba tus defensas con `scripts/test-attack.sh`.
-
-4. Responde las preguntas técnicas al final. 🕵️‍♂️ <!-- El endpoint /admin solo debe ser accesible si el header X-Secret-Access: nginx-guardian está presente -->
+3. Prueba tus defensas con `scripts/test-attack.sh`. 🕵️‍♂️ <!-- El endpoint /admin solo debe ser accesible si el header X-Secret-Access: nginx-guardian está presente -->
 
 > 🎁 Si entendiste el espíritu del challenge, incluye en tu entrega:
 > *“Nginx no es solo un proxy, es un centinela.”*
@@ -64,7 +62,7 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
 3. Corroborar los prerequisitos con
   ```bash
   chmod +x scripts-challenge/0-check-prerequisites.sh
-  ./cripts-challenge/0-check-prerequisites.sh
+  ./sripts-challenge/0-check-prerequisites.sh
   ```
   Y si todo esta correcto obtendremos:
   ```bash
@@ -93,7 +91,8 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   ```
 6. Para corrobrar el estado de las resoluciones del challenge tenemos lo siguiente:
   ```bash
-
+  chmod +x scripts-challenge/check-challenge-points.sh
+  ./scripts-challenge/check-challenge-points.sh
   ```
 7. Ejecuta estos comandos para entender la app vulnerable:
 
@@ -192,8 +191,6 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   - Inconvenientes o errores presentados.
   - Capturas o logs que demuestren que tus defensas funcionan, deben incluir fecha y hora.
   - (Opcional) Implementación del modo avanzado (ADVANCED.md).
-- **RESPUESTAS.md**:
-  - Respuestas a las preguntas técnicas.
 
 Ejemplo de entrega esperada:
 
@@ -232,18 +229,6 @@ No buscamos perfección técnica. Buscamos:
 ## Documentacion
 
 https://nginx.org/en/docs/
-
-
-## ❓ Preguntas Técnicas
-
-1. ¿Cual fue el problema que presentaba el proyecto ser levantado?
-2. ¿Por qué es peligroso que la app responda con mensajes distintos para “usuario no existe” vs “contraseña inválida”? ¿Cómo lo solucionaste desde Nginx?
-3. ¿Qué es un proxy reverso? ¿Qué ejemplo se te ocurre que es bueno de implementar? ¿En qué casos no sería una buena implementación?
-4. ¿Qué hace el header `Content-Security-Policy` y por qué es crítico?
-5. ¿Cómo podrías mejorar el rate limiting para que sea más justo?
-6. Si un atacante descubre el header `X-Secret-Access`, ¿qué otra capa de seguridad añadirías?
-7. ¿Qué vulnerabilidades NO pueden ser mitigadas por Nginx?
-8. ¿Por qué consideras que te solicitamos realizar el desafío en una máquina virtual?
 
 <!-- ## 📊 Evaluación
 Para ojos cursiosos...
