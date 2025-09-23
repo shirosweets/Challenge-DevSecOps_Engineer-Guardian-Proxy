@@ -58,11 +58,10 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
 ## Pasos para empezar
 
 1. Clonar el repositorio en un la maquina virtual de Lubuntu
-2. Instalar Docker, Docker Compose y jq
-3. Corroborar los prerequisitos con
+2. Corroborar los prerequisitos con
   ```bash
   chmod +x scripts-challenge/0-check-prerequisites.sh
-  ./sripts-challenge/0-check-prerequisites.sh
+  ./scripts-challenge/0-check-prerequisites.sh
   ```
   Y si todo esta correcto obtendremos:
   ```bash
@@ -70,9 +69,9 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   ========================================
   1. Verificando Docker...
   ✅ Docker 28 instalado (>= 28)
-  2. Verificando Docker Compose v2...
+  1. Verificando Docker Compose v2...
   ✅ Docker Compose v2 (2.39.4) instalado correctamente
-  3. Verificando jq...
+  1. Verificando jq...
   ✅ jq (jq-1.8.1) instalado
 
   🎉 ¡TODOS LOS REQUISITOS CUMPLIDOS!
