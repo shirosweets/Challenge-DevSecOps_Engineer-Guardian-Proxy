@@ -4,34 +4,35 @@
 
 ## 🎯 Objetivo
 
-Recibes una app Node.js insegura. Debes protegerla usando **Nginx como proxy inverso**, aplicando configuraciónes de seguridad *sin modificar el código de la app*, pero realizando recomendaciones para cambios.
+Recibes una app Node.js insegura. Debes protegerla usando **Nginx como proxy inverso**, aplicando configuraciones de seguridad *sin modificar el código de la app*, pero realizando recomendaciones para cambios.
 
 ## 🛡️ Tu misión
 
-1. Levantar la aplicacion y realizar recomendaciones de seguridad al equipo que la desarrollo desde dos escenarios:
-   1. De manera como usuario (pensando como atancante, sin acceso al codigo) - recomendamos no ver los archivos en `app/` para mejor analisis
-   2. Como auditor de seguridad: con acceso al codigo. Es importante NO modificar el codigo para este desafio!
+1. Levantar la aplicación y realizar recomendaciones de seguridad al equipo que la desarrollo desde dos escenarios:
+   1. De manera como usuario (pensando como atancante, sin acceso al código) - recomendamos no ver los archivos en `app/` para mejor analisis
+   2. Como auditor de seguridad: con acceso al código. Es importante NO modificar el código para este desafío!
 2. Configura Nginx para:
    - Añadir headers de seguridad.
    - Ocultar headers del backend.
    - Limitar intentos de login.
    - Bloquear acceso a `/admin` a menos que se envíe `X-Secret-Access: nginx-guardian`.
    - Reescribir respuestas de login para no filtrar información.
-   - Cualquier otra configuración seguridad o buena práctica que veas necesaria.
     > Esta configuración debe quedar en `nginx/`
+3. Cualquier otra configuración seguridad o buena práctica que veas necesaria.
+4. Hay ejercicios secretos, que también se tendrán en cuenta.
 
     > “Tu misión no es solo hacer que funcione, es hacer que sea seguro.
     > Usa Nginx como tu escudo. Cada vulnerabilidad es una oportunidad para demostrar tu ingenio.
     > Y recuerda: las mejores defensas están en los detalles que otros ignoran.”
 
-3. Prueba tus defensas con `scripts/test-attack.sh`. 🕵️‍♂️ <!-- El endpoint /admin solo debe ser accesible si el header X-Secret-Access: nginx-guardian está presente -->
+1. Prueba tus defensas con `scripts/test-attack.sh`. 🕵️‍♂️ <!-- El endpoint /admin solo debe ser accesible si el header X-Secret-Access: nginx-guardian está presente -->
 
 > 🎁 Si entendiste el espíritu del challenge, incluye en tu entrega:
 > *“Nginx no es solo un proxy, es un centinela.”*
 
 ### 🐳 Bonus **opcionales**
 
-- Logs Estructurados en JSON (para monitoreo) - No de aplicacion, sino de Nginx.
+- Logs Estructurados en JSON (para monitoreo) - No de aplicación, sino de Nginx.
 - Bloquear escaneos automaticos.
 
 ## 📜 Reglas
@@ -45,7 +46,7 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
 - Docker compose >= v2 (`docker compose` no `docker-compose`)
 - Nginx
 - jq
-- Scripts brindados para corrobrar el desafio:
+- Scripts brindados para corrobrar el desafío:
   - `scripts-challenge/0-check-prerequisites.sh`
   - `scripts-challenge/debug-app.sh`
   - `scripts-challenge/debug-setup.sh`
@@ -77,14 +78,16 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   🎉 ¡TODOS LOS REQUISITOS CUMPLIDOS!
   Puedes proceder a levantar el entorno con: docker compose up --build
   ```
-4. Iniciamos el proyecto
+4. Iniciamos el proyecto:
   ```bash
   docker compose up --build
   ```
-5. Para chequear que la app esta ok:
+5. Utilizamos el la siguiente request:
   ```bash
   curl http://localhost:8080/health
   ```
+  Y vamos a encontrar que no funciona. El primer desafío es hacer que pueda funcionar correctamente.
+  Sabremos que está bien cuando devuelva:
   ```bash
   {"status":"OK","server":"Node.js EvilApp v1.0"}
   ```
