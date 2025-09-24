@@ -39,6 +39,7 @@ app.get('/admin', (req, res) => {
 
 app.get('/health', (req, res) => res.json({ status: "OK", server: "Node.js EvilApp v1.0" }));
 
+// Que problemas tiene esta implementacion?
 // app.get('/search', (req, res) => {
 //   const query = req.query.query;
 //   const sql = `SELECT * FROM products WHERE name LIKE '%${query}%'`;

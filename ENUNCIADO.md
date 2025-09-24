@@ -98,14 +98,14 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   ```
 7. Ejecuta estos comandos para entender la app vulnerable:
 
-  1. Login correcto
+  ### Login correcto
   ```bash
   curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/json" \
   -d '{"username":"user1","password":"123456"}'
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```json
   {
     "message":"Login successful",
@@ -114,38 +114,38 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   }
   ```
 
-  2. Login con usuario inexistente
+  ### Login con usuario inexistente
   ```bash
   curl -X POST http://localhost:8080/login \
     -H "Content-Type: application/json" \
     -d '{"username":"fake","password":"123"}'
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```json
   {"error":"User not found"}
   ```
 
-  3. Login con contraseña incorrecta
+  ### Login con contraseña incorrecta
   ```bash
   curl -X POST http://localhost:8080/login \
     -H "Content-Type: application/json" \
     -d '{"username":"user1","password":"wrong"}'
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```json
   curl -X POST http://localhost:8080/login \
     -H "Content-Type: application/json" \
     -d '{"username":"user1","password":"wrong"}'
   ```
 
-  4. Acceso a /admin sin header
+  ### Acceso a /admin sin header
   ```bash
   curl -I http://localhost:8080/admin
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```bash
   HTTP/1.1 403 Forbidden
   Server: nginx/1.29.1
@@ -156,31 +156,32 @@ Lee atentamente las reglas en [RULES.md](RULES.md) antes de comenzar.
   X-Content-Type-Options: nosniff
   ```
 
-  5. Acceso a /admin con header
+  ### Acceso a /admin con header
   ```bash
   curl -H "X-Secret-Access: nginx-guardian" http://localhost:8080/admin
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```bash
   curl -H "X-Secret-Access: nginx-guardian" http://localhost:8080/admin
   ```
 
-  6. Búsqueda (simula SQLi)
+  ### Búsqueda (simula SQLi)
   ```bash
   curl "http://localhost:8080/search?query=laptop"
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```json
   [{"id":1,"name":"Laptop","price":999}]
   ```
 
+  ####
   ```bash
   curl "http://localhost:8080/search?query='%20OR%201=1--"
   ```
 
-  Output esperado:
+  ### Output esperado:
   ```json
   []
   ```
